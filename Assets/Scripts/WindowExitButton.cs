@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class WindowExitButton : MonoBehaviour
 {
-    public GameObject optionsWindow;
+    public GameObject targetWindow;
     public void CloseWindow()
     {
-        optionsWindow.SetActive(false);
+        targetWindow.SetActive(false);
     }
 
     public void OpenWindow()
     {
-        optionsWindow.SetActive(true);
+        targetWindow.SetActive(true);
     }
 }
