@@ -24,4 +24,18 @@ public class StoryPivot : Story
 
         return stories[highestEndingIndex];
     }
+
+    public void AddEndingPoints(int value, Story endingStory)
+    {
+        for (int i = 0; i < stories.Count; i++)
+        {
+            Story story = stories[i];
+
+            if (story == endingStory)
+            {
+                endingPoints[i] += value;
+                return;
+            }
+        }
+    }
 }
