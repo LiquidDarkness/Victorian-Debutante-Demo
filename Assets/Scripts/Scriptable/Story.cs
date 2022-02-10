@@ -6,7 +6,8 @@ using UnityEngine;
 public class Story : ScriptableObject
 {
     [SerializeField] LocalizableText storyTexts;
-    public Story nextStory;
+    [SerializeField] Story nextStory;
+    public virtual Story NextStory { get => nextStory; }
     public string StoryText
     {
         get => storyTexts.translations[LanguageSelector.CurrentLanguage].StoryText;

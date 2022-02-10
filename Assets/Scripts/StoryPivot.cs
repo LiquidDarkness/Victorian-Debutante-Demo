@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "LiquidDarkness/" + nameof(StoryPivot))]
 public class StoryPivot : Story
 {
-    public List<Story> stories;
+    public const char separator = ',';
+    public List<Story> stories = new List<Story>();
     private List<int> endingPoints;
     private const string savingKey = "savingKey serves as key in PlayerPrefs.SetString alongside savingData";
+    public override Story NextStory => GetResultingStory();
 
     public void Awake()
     {
@@ -23,6 +27,16 @@ public class StoryPivot : Story
     private List<int> ConvertData(string savingData)
     {
         // TODO: odtegowaæ do listy
+        // 32,12,9,15
+        string[] convertingResult;
+        convertingResult = savingData.Split(separator);
+        //int example = int.Parse("32");
+        // Linq pracuje na kolekcji convertingResult (kolekcja stringów), nastêpnie 
+        // wybiera osobno ka¿dy element podanejkolekcji,
+        // konwertuje go na typ int, korzystaj¹c z funkcji int.Parse, nastêpnie
+        // konwertuje otrzyman¹ kolekcjê do listy
+        return convertingResult.Select(int.Parse).ToList();
+        //return convertingResult;
     }
 
     public Story GetResultingStory()
@@ -53,7 +67,7 @@ public class StoryPivot : Story
             {
                 endingPoints[i] += value;
                 SaveEndingData();
-                return; // TODO: wykombinowaæ, po co tu jest ten return i co siê mo¿e staæ bez niego
+                return; // pêtla wykona siê tylko tyle razy, ile jest potrzebnych, ¿eby spe³niæ warunek ifa.
             }
         }
     }
@@ -62,7 +76,7 @@ public class StoryPivot : Story
     {
         // example:
         // 32,12,9,15
-        string savingData = string.Join(",", endingPoints);
+        string savingData = string.Join(separator.ToString(), endingPoints);
         PlayerPrefs.SetString(savingKey, savingData);
     }
 }

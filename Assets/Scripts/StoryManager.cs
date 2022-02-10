@@ -17,7 +17,7 @@ public class StoryManager : MonoBehaviour
 
     public void ProceedToNextStory()
     {
-        if (currentStory.nextStory != null)
+        if (currentStory.NextStory != null)
         {
             currentStory = LoadNextStory();
             storyDisplayer.DisplayStoryText(currentStory);
@@ -34,7 +34,7 @@ public class StoryManager : MonoBehaviour
 
     private Story LoadNextStory()
     {
-        return currentStory.nextStory;
+        return currentStory.NextStory;
     }
 
     [ContextMenu("Test")]
