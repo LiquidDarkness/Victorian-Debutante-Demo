@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9055ffc437936840a1fbbb8ae1bbe04, type: 3}
+  m_Name: EndingChooser
+  m_EditorClassIdentifier: 
+  storyTexts: {fileID: 0}
+  nextStory: {fileID: 0}
+  pivotsData: []
+  stories:
+  - {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
+  - {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}

@@ -20,7 +20,7 @@ public class StoryManager : MonoBehaviour
         if (currentStory.NextStory != null)
         {
             currentStory = LoadNextStory();
-            storyDisplayer.DisplayStoryText(currentStory);
+            storyDisplayer.DisplayStory(currentStory);
             return;
         }
         
@@ -29,6 +29,7 @@ public class StoryManager : MonoBehaviour
 
     private void CalculateEnding()
     {
+        //TODO: uzupe³niæ metodê
         Debug.Log("The end.");
     }
 
@@ -40,7 +41,7 @@ public class StoryManager : MonoBehaviour
     [ContextMenu("Test")]
     void Test()
     {
-        storyDisplayer.DisplayStoryText(firstStory);
+        storyDisplayer.DisplayStory(firstStory);
         Debug.Log(firstStory.StoryText);
     }
 

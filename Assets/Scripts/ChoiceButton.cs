@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,10 @@ public class ChoiceButton : MonoBehaviour
     {
         decisionAnimation.ChooseDecision(index);
         afterChoice.PerformAnimation();
+    }
+
+    internal void SetText(string textToSet)
+    {
+        choiceText.text = textToSet;
     }
 }

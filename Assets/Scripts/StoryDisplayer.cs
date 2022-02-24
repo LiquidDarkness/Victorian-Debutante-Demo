@@ -10,20 +10,15 @@ public class StoryDisplayer : MonoBehaviour
     public Text textDisplay;
     public Text decisionDisplay;
     public Animator animator;
+    public TextInstantiator textInstantiator;
 
     public bool ShouldBePicked { set => animator.SetBool(nameof(ShouldBePicked), value); }
 
-    public void DisplayStoryText(StoryBoxes story)
-    {
-        imageDisplay.sprite = story.storyImage;
-        textDisplay.text = story.storyText;
-        ShouldBePicked = false;
-    }
-
-    internal void DisplayStoryText(Story story)
+    internal void DisplayStory(Story story)
     {
         imageDisplay.sprite = story.StoryImage;
         textDisplay.text = story.StoryText;
+        textInstantiator.FillTexts(story.GetDecision, story.DecisionCount);
     }
     internal void DisplayResponseText(string decisionText)
     {
@@ -34,6 +29,6 @@ public class StoryDisplayer : MonoBehaviour
     [ContextMenu("Test")]
     void Test()
     {
-        DisplayStoryText(Resources.LoadAll<Story>("Stories")[0]);
+        DisplayStory(Resources.LoadAll<Story>("Stories")[0]);
     }
 }

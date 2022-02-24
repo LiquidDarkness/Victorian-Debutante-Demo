@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class Story : ScriptableObject
 {
     [SerializeField] LocalizableText storyTexts;
     [SerializeField] Story nextStory;
+    public PivotData[] pivotsData;
+    public int DecisionCount { get => 4; }
     public virtual Story NextStory { get => nextStory; }
     public string StoryText
     {
@@ -56,9 +59,48 @@ public class Story : ScriptableObject
         get => Resources.Load<Sprite>($"Stories/StoryImages/{this.name}"); 
     }
 
+    public string GetResult(int index)
+    {
+        switch (index)
+        {
+            case 0: return ResultA;
+            case 1: return ResultB;
+            case 2: return ResultC;
+            case 3: return ResultD;
+
+            default: return string.Empty;
+        }
+    }
+
+    public string GetDecision(int index)
+    {
+        switch (index)
+        {
+            case 0: return DecisionA;
+            case 1: return DecisionB;
+            case 2: return DecisionC;
+            case 3: return DecisionD;
+
+            default: return string.Empty;
+        }
+    }
+
     [ContextMenu("Test")]
     public void Test()
     {
         Debug.Log(StoryText);
+    }
+
+    [Serializable]
+    public struct PivotData
+    {
+        public List<PointsData> pointsData;
+    }
+
+    [Serializable]
+    public struct PointsData
+    {
+        public int points;
+        public Story story;
     }
 }

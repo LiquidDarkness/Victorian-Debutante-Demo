@@ -31,4 +31,12 @@ public class TextInstantiator : MonoBehaviour
             choiceButton.afterChoice = afterChoice;
         }
     }
+
+    internal void FillTexts(Func<int, string> textsGetter, int textsCount)
+    {
+        for (int i = 0; i < textsCount; i++)
+        {
+            buttons[i].SetText(textsGetter(i));
+        }
+    }
 }

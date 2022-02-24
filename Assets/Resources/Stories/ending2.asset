@@ -7,11 +7,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9055ffc437936840a1fbbb8ae1bbe04, type: 3}
-  m_Name: New Story Pivot
+  m_Script: {fileID: 11500000, guid: 49cf7fcf7d54409408c5addf1880db36, type: 3}
+  m_Name: ending2
   m_EditorClassIdentifier: 
-  storyTexts: {fileID: 0}
+  storyTexts: {fileID: 11400000, guid: 13a27e4a24b4ce843a32a931b20c4a3e, type: 2}
   nextStory: {fileID: 0}
-  stories: []
