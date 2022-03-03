@@ -11,6 +11,7 @@ public class StoryDisplayer : MonoBehaviour
     public Text decisionDisplay;
     public Animator animator;
     public TextInstantiator textInstantiator;
+    public GameObject responseText;
 
     public bool ShouldBePicked { set => animator.SetBool(nameof(ShouldBePicked), value); }
 

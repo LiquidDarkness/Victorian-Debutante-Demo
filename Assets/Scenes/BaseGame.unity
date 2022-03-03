@@ -687,6 +687,7 @@ MonoBehaviour:
   contentLayouter: {fileID: 1423188332}
   realStoryTransform: {fileID: 7177667203542194694}
   separatorTransform: {fileID: 7981641752288331308}
+  responseText: {fileID: 1776031058}
   speed: 50
 --- !u!114 &1169292796
 MonoBehaviour:
@@ -705,6 +706,7 @@ MonoBehaviour:
   decisionDisplay: {fileID: 1932435260}
   animator: {fileID: 0}
   textInstantiator: {fileID: 1169292792}
+  responseText: {fileID: 1776031058}
 --- !u!114 &1199105047 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2376470111215051222, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
@@ -1140,6 +1142,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716828454}
   m_CullTransparentMesh: 1
+--- !u!1 &1776031058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3721471069960685366, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
+  m_PrefabInstance: {fileID: 8864162766996436988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1837654749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1227,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3390116752037843666, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
   m_PrefabInstance: {fileID: 8864162766996436988}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1776031058}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -1441,7 +1448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6251683427356121090, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -348
+      value: -306
       objectReference: {fileID: 0}
     - target: {fileID: 6352001003946283432, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_IgnoreLayout

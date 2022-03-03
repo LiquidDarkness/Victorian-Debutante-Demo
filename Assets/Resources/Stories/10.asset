@@ -14,3 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyTexts: {fileID: 11400000, guid: 13384d507f703704cb9e5cd8dbde328b, type: 2}
   nextStory: {fileID: 11400000, guid: 18dbe262c6f521e4893dd40ef07e685a, type: 2}
+  pivotsData:
+  - pointsData:
+    - points: 10
+      story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
+    - points: 5
+      story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
+  - pointsData:
+    - points: 2
+      story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
+    - points: 10
+      story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}

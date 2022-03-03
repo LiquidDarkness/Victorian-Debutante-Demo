@@ -11,6 +11,7 @@ public class AfterChoiceAnimation : MonoBehaviour
     //   public LayoutElement realStoryLayouter;
     public RectTransform realStoryTransform;    
     public RectTransform separatorTransform;
+    public GameObject responseText;
     public float speed;
     float FakeStoryHeight
     {
@@ -98,5 +99,6 @@ public class AfterChoiceAnimation : MonoBehaviour
             yield return null;
         }
         spacerLayouter.ignoreLayout = true;
+        responseText.SetActive(true);
     }
 }
