@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyTexts: {fileID: 0}
   nextStory: {fileID: 0}
+  storyMusic: {fileID: 0}
   pivotsData: []
   stories:
   - {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
   - {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
+  - {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
+  - {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}

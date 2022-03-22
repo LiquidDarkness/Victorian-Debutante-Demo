@@ -23,14 +23,6 @@ public class StoryManager : MonoBehaviour
             storyDisplayer.DisplayStory(currentStory);
             return;
         }
-        
-        CalculateEnding();
-    }
-
-    private void CalculateEnding()
-    {
-        //TODO: uzupe³niæ metodê
-        Debug.Log("The end.");
     }
 
     private Story LoadNextStory()

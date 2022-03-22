@@ -10,7 +10,8 @@ public class StoryPivot : Story
     public const char separator = ',';
     public List<Story> stories = new List<Story>();
     private List<int> endingPoints;
-    private const string savingKey = "savingKey serves as key in PlayerPrefs.SetString alongside savingData";
+    private const string savingKey = "BaseEndingValuesKey";
+        //"savingKey serves as key in PlayerPrefs.SetString alongside savingData";
     public override Story NextStory => GetResultingStory();
 
     public void Awake()
@@ -26,7 +27,6 @@ public class StoryPivot : Story
 
     private List<int> ConvertData(string savingData)
     {
-        // TODO: odtegowaæ do listy
         // 32,12,9,15
         string[] convertingResult;
         convertingResult = savingData.Split(separator);

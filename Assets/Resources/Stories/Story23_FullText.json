@@ -1,0 +1,26 @@
+{
+	"Entries":
+	[
+		 {
+		   "Language": "EN",
+		   "StoryText": "",
+		   "DecisionA": "",
+		   "ResultA": "",
+		   "DecisionB": "",
+		   "ResultB": "",
+		   "DecisionC": "",
+		   "ResultC": "",
+		   "DecisionD": "",
+		   "ResultD": "."
+		 }
+		 ,
+		 {
+		   "Language": "PL",
+		   "StoryText": "Tłumaczonko w drodze.",
+		   "DecisionA": "Fejkowe tłumaczonko A",
+		   "DecisionB": "Fejkowe tłumaczonko B",
+		   "DecisionC": "Fejkowe tłumaczonko C",
+		   "DecisionD": "Fejkowe tłumaczonko D"
+		 }
+	]
+}

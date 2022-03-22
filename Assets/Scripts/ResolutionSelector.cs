@@ -38,6 +38,7 @@ public class ResolutionSelector : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+        MakeSettingPersistent();
     }
 
     public void SetResolution(int resolutionIndex)
@@ -45,6 +46,12 @@ public class ResolutionSelector : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         PlayerPrefs.SetInt(ResolutionKey, resolutionIndex);
-        //TODO: zrobiæ opcjê zapamiêtywania ustawieñ dla ka¿dego ustawienia, poza rozdzielczoœci¹. Mo¿e nowa metoda? (SetBool to tak naprawdê SetInt)
+        MakeSettingPersistent();
+        //TODO: W DOMU zrobiæ opcjê zapamiêtywania ustawieñ dla ka¿dego ustawienia, poza rozdzielczoœci¹. Mo¿e nowa metoda? (SetBool to tak naprawdê SetInt)
+    }
+
+    public void MakeSettingPersistent()
+    {
+        PersistentSettings.PreservePlayerPref(ResolutionKey);
     }
 }
