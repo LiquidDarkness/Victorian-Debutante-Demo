@@ -6,7 +6,7 @@ using UnityEngine;
 public static class PersistentSettings
 {
     static List<int> valuesToCache;
-    static HashSet<string> keysToGrab;
+    static HashSet<string> keysToGrab = new HashSet<string>();
 
     public static void PurgePlayerPrefs()
     {

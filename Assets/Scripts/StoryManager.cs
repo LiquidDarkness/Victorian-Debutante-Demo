@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class StoryManager : MonoBehaviour
 {
-    public Story firstStory;
+    private const string savedStoryKey = "savedStoryKey";
+    public static Story firstStory;
+    private static Story savedStory;
+    public string storyName;
     public StoryDisplayer storyDisplayer;
     private Story currentStory;
+
+    public static Story SavedStory { get => LoadSavedStory(); set => savedStory = value; }
 
     void Start()
     {
@@ -20,9 +25,24 @@ public class StoryManager : MonoBehaviour
         if (currentStory.NextStory != null)
         {
             currentStory = LoadNextStory();
+            savedStory = currentStory;
+            SaveSavedStory(savedStory);
             storyDisplayer.DisplayStory(currentStory);
             return;
         }
+    }
+
+    private void SaveSavedStory(Story savedStory)
+    {
+        storyName = savedStory.name;
+        PlayerPrefs.SetString(savedStoryKey, storyName);
+    }
+
+    private static Story LoadSavedStory()
+    {
+        string storyName = PlayerPrefs.GetString(savedStoryKey);
+        return Resources.Load<Story>($"Stories/Stories/{storyName}");
+        // TODO: magic string jest be, naprawiæ.
     }
 
     private Story LoadNextStory()
@@ -30,6 +50,10 @@ public class StoryManager : MonoBehaviour
         return currentStory.NextStory;
     }
 
+    // TODO: dlaczego ³aduje siê placeholder zamiast story na dzieñdobry?
+    // TODO: uproœciæ spuchniêty kod w tej klasie.
+    
+    /*
     [ContextMenu("Test")]
     void Test()
     {
@@ -43,4 +67,5 @@ public class StoryManager : MonoBehaviour
         storyDisplayer.DisplayResponseText(firstStory.ResultA);
         Debug.Log(firstStory.DecisionA);
     }
+    */
 }
