@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,43 +7,47 @@ using UnityEngine.UI;
 
 public class StoryManager : MonoBehaviour
 {
+    private const string storiesLocationInResources = "Stories/Stories/";
+    private const string failsafeStory = "01";
     private const string savedStoryKey = "savedStoryKey";
     public static Story firstStory;
-    private static Story savedStory;
-    public string storyName;
     public StoryDisplayer storyDisplayer;
     private Story currentStory;
 
-    public static Story SavedStory { get => LoadSavedStory(); set => savedStory = value; }
+    public static Story SavedStory {
+        get
+        {
+            string storyName = PlayerPrefs.GetString(savedStoryKey, failsafeStory);
+            return Resources.Load<Story>($"{storiesLocationInResources}{storyName}");
+        }
 
-    void Start()
-    {
-        currentStory = firstStory;
+        set
+        {
+            string storyName = value.name;
+            PlayerPrefs.SetString(savedStoryKey, storyName);
+        }
     }
 
+    void Awake()
+    {
+        currentStory = firstStory ?? SavedStory;
+    }
+
+    private void Start()
+    {
+        storyDisplayer.DisplayStory(currentStory);
+    }
+
+    [UsedImplicitly]
     public void ProceedToNextStory()
     {
         if (currentStory.NextStory != null)
         {
             currentStory = LoadNextStory();
-            savedStory = currentStory;
-            SaveSavedStory(savedStory);
+            SavedStory = currentStory;
             storyDisplayer.DisplayStory(currentStory);
             return;
         }
-    }
-
-    private void SaveSavedStory(Story savedStory)
-    {
-        storyName = savedStory.name;
-        PlayerPrefs.SetString(savedStoryKey, storyName);
-    }
-
-    private static Story LoadSavedStory()
-    {
-        string storyName = PlayerPrefs.GetString(savedStoryKey);
-        return Resources.Load<Story>($"Stories/Stories/{storyName}");
-        // TODO: magic string jest be, naprawiæ.
     }
 
     private Story LoadNextStory()
@@ -50,9 +55,6 @@ public class StoryManager : MonoBehaviour
         return currentStory.NextStory;
     }
 
-    // TODO: dlaczego ³aduje siê placeholder zamiast story na dzieñdobry?
-    // TODO: uproœciæ spuchniêty kod w tej klasie.
-    
     /*
     [ContextMenu("Test")]
     void Test()

@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5155ef9a039ec544d9caaf9a5f588a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstStory: {fileID: 11400000, guid: 846642e9270d99d49aa7fc2460383b2e, type: 2}
   storyDisplayer: {fileID: 1169292796}
 --- !u!4 &22214770
 Transform:
@@ -379,7 +378,7 @@ MonoBehaviour:
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 22
-  m_Viewport: {fileID: 1423188331}
+  m_Viewport: {fileID: 338700133}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1972970856}
   m_HorizontalScrollbarVisibility: 0
@@ -869,7 +868,7 @@ MonoBehaviour:
   realStoryTransform: {fileID: 7177667203542194694}
   separatorTransform: {fileID: 7981641752288331308}
   responseText: {fileID: 1776031058}
-  speed: 50
+  speed: 4500
 --- !u!114 &1169292796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,8 +1037,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1061,6 +1060,30 @@ MonoBehaviour:
       - m_Target: {fileID: 22214769}
         m_TargetAssemblyTypeName: StoryManager, Assembly-CSharp
         m_MethodName: ProceedToNextStory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1169292795}
+        m_TargetAssemblyTypeName: AfterChoiceAnimation, Assembly-CSharp
+        m_MethodName: SetUpForDisplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1169292793}
+        m_TargetAssemblyTypeName: DecisionAnimation, Assembly-CSharp
+        m_MethodName: RestoreDecisions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1501,6 +1524,7 @@ GameObject:
   - component: {fileID: 1972970858}
   - component: {fileID: 1972970857}
   - component: {fileID: 1972970856}
+  - component: {fileID: 1972970859}
   m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
@@ -1570,7 +1594,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1327001969}
   m_HandleRect: {fileID: 1327001968}
-  m_Direction: 3
+  m_Direction: 2
   m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
@@ -1597,8 +1621,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d5260a2f5ebe6b84ea3975395ad76027, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1606,7 +1630,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.4
 --- !u!222 &1972970858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1615,6 +1639,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972970854}
   m_CullTransparentMesh: 1
+--- !u!114 &1972970859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972970854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!114 &1988140048 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6673997657935649569, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
@@ -1727,27 +1764,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773279298009539363, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773279298009539363, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773279298009539363, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 623.9354
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773279298009539363, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 137
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773279298009539363, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2773279298009539363, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3390116752037843666, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_Color.b
@@ -1839,27 +1876,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7512100138165825107, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7512100138165825107, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7512100138165825107, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 623.9354
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7512100138165825107, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7512100138165825107, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 346.9677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7512100138165825107, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -224.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8864162765598938774, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_Name
@@ -1935,7 +1972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8864162765598938775, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.3998413
+      value: 0.19989014
       objectReference: {fileID: 0}
     - target: {fileID: 8864162765598938775, guid: ec78dd03459f63b47b575ab7b8c83660, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

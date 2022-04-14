@@ -15,6 +15,11 @@ public class StoryDisplayer : MonoBehaviour
 
     public bool ShouldBePicked { set => animator.SetBool(nameof(ShouldBePicked), value); }
 
+    public void Start()
+    {
+        (responseText.transform as RectTransform).SetAsLastSibling();
+    }
+
     internal void DisplayStory(Story story)
     {
         imageDisplay.sprite = story.StoryImage;

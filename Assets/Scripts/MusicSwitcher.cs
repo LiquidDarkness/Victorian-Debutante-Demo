@@ -52,5 +52,4 @@ public class MusicSwitcher : MonoBehaviour
     }
 
     //TODO: W DOMU wywaliæ awake i zrobiæ tak, ¿eby dzia³a³o na czas, nie na stepy(volumeUp/DownBy).
-    //TODO: W DOMU zrobiæ to, co w Paincie na zielono. (pocz¹tkowego Story na now¹ grê i poprzedniego na kontynuacjê)
 }

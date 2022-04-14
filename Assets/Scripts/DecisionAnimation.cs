@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using JetBrains.Annotations;
 
 public class DecisionAnimation : MonoBehaviour
 {
@@ -20,17 +21,10 @@ public class DecisionAnimation : MonoBehaviour
             decisions[i] = textInstantiator.buttons[i].rootGameObject;
         }
     }
-
-    public void PerformAnimation()
-    {
-        IEnumerator routine = MovingRoutine();
-        this.StartCoroutine(routine);
-    }
-
+   
     /// <summary>
     /// Fades out the three decision that weren't chosen by the player in the scene.
     /// </summary>
-    [ContextMenu("Test FadeOutDecisions")]
     public void ChooseDecision(int decisionIndex)
     {
         for (int i = 0; i < decisions.Length; i++)
@@ -40,6 +34,17 @@ public class DecisionAnimation : MonoBehaviour
         decisions[decisionIndex].SetActive(true);
     }
 
+    [UsedImplicitly]
+    public void RestoreDecisions()
+    {
+        for (int i = 0; i < decisions.Length; i++)
+        {
+            decisions[i].SetActive(true);
+        }
+    }
+
+
+    /*
     [ContextMenu("Test FadeOutDecisions")]
     private void TestSelectDecisionB()
     {
@@ -58,31 +63,5 @@ public class DecisionAnimation : MonoBehaviour
         textColor.a = 0;
         decisionText.color = textColor;
     }
-
-    /// <summary>
-    /// Moves up all the decision text until the chosen one is the headline.
-    /// </summary>
-    private void MoveUpDecisions()
-    {
-
-    }
-
-
-    private IEnumerator MovingRoutine()
-    {
-        //FadeOutDecisions();
-        yield return null;
-        MoveUpDecisions();
-    }
-}
-
-class Tester
-{
-    DecisionAnimation decisionAnimation;
-    AfterChoiceAnimation choiceAnimation;
-    private void Test()
-    {
-        choiceAnimation.PerformAnimation();
-        decisionAnimation.PerformAnimation();
-    }
+    */
 }

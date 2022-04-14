@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,12 +26,16 @@ public class AfterChoiceAnimation : MonoBehaviour
         }
     }
 
+    [UsedImplicitly]
     [ContextMenu("Test SetUpAfterAnimation")]
-    void SetUpAfterAnimation()
+    public void SetUpForDisplay()
     {
-        realStoryLayouter.ignoreLayout = false;
         FakeStoryHeight = 0;
+        realStoryLayouter.ignoreLayout = false;
+        spacerLayouter.ignoreLayout = false;
+        separatorLayouter.ignoreLayout = false;
         fakeStoryLayouter.ignoreLayout = true;
+        responseText.SetActive(false);
     }
 
 
@@ -43,10 +48,12 @@ public class AfterChoiceAnimation : MonoBehaviour
     [ContextMenu("Test SetUpForAnimation")]
     void SetUpForAnimation()
     {
+        float totalSeparationHeight = separatorTransform.rect.height + contentLayouter.spacing * 2;
         realStoryLayouter.ignoreLayout = true;
+        spacerLayouter.ignoreLayout = true;
         separatorLayouter.ignoreLayout = true;
         fakeStoryLayouter.ignoreLayout = false;
-        FakeStoryHeight = realStoryTransform.rect.height;
+        FakeStoryHeight = realStoryTransform.rect.height + totalSeparationHeight;
     }
 
     [ContextMenu("Test MoveHeightBy")]
@@ -85,20 +92,11 @@ public class AfterChoiceAnimation : MonoBehaviour
         float separatorSpeed = speed / FakeStoryHeight;
 
         yield return null;
-        while (FakeStoryHeight > -300)
+        while (FakeStoryHeight > 0)
         {
             MoveHeightBy(step);
             yield return null;
         }
-
-        float paddingValue = contentLayouter.padding.top;
-        while (paddingValue > 0)
-        {
-            MoveHeightBy(step);
-            paddingValue -= step;
-            yield return null;
-        }
-        spacerLayouter.ignoreLayout = true;
         responseText.SetActive(true);
     }
 }

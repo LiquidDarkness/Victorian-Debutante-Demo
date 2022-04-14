@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "LiquidDarkness/" + nameof(LocalizableText))]
 public class LocalizableText : ScriptableObject
 {
-    public StoryTexts texts;
     public TextAsset json;
     public Dictionary<string, StoryTexts> translations = new Dictionary<string, StoryTexts>();
 
