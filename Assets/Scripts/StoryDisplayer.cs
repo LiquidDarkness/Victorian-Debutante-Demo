@@ -22,7 +22,7 @@ public class StoryDisplayer : MonoBehaviour
 
     internal void DisplayStory(Story story)
     {
-        imageDisplay.sprite = story.StoryImage;
+       // TODO: Temporary!!! imageDisplay.sprite = story.StoryImage;
         textDisplay.text = story.StoryText;
         textInstantiator.FillTexts(story.GetDecision, story.DecisionCount);
     }
