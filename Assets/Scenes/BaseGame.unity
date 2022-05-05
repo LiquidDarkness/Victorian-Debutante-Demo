@@ -1549,16 +1549,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1837654749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6dd936416c1e1c4d971da1cfb14a884, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e0abaccf44e19d4688fcead00ebcb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glossImage: {fileID: 1837654753}
-  storyImage: {fileID: 1399739343}
-  previousStoryImage: {fileID: 21300000, guid: 50023d55b3585424eae4fa54dbd3053d, type: 3}
-  currentStoryImage: {fileID: 21300000, guid: 862f53749db97f74684db2cc25269ad1, type: 3}
-  maxThickness: 10
-  antyaliasingThickness: 300
+  firstSprite: {fileID: 21300000, guid: 88b85b3aa78ad3249bff5b7a3340046d, type: 3}
+  secondSprite: {fileID: 21300000, guid: 01e96f3191c72b642b36696fb02a961d, type: 3}
+  image: {fileID: 1837654753}
+  glowColor: {r: 0.854902, g: 0.7137255, b: 1, a: 1}
   angle: 45
+  yoffset: 0.2
+  thickness: 0.5
   xAnimation:
     serializedVersion: 2
     m_Curve:
@@ -1589,20 +1589,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      inSlope: -0.027042542
+      outSlope: -0.027042542
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.058338292
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      value: 0
+      inSlope: -3.5192704
+      outSlope: -3.5192704
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.019278347
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

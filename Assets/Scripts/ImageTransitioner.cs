@@ -7,6 +7,7 @@ public class ImageTransitioner : MonoBehaviour
     public Sprite firstSprite, secondSprite;
     Texture2D texture;
     public Image image;
+    public Color glowColor;
     [Range(0,360)]
     public float angle;
     [Range(-1, 1)]
@@ -34,11 +35,12 @@ public class ImageTransitioner : MonoBehaviour
         PaintTexture();
     }
 
-    private Color EvaluateLineColor(int x, int y)
+    private float EvaluateLineAlpha(int x, int y, out bool isAboveLine)
     {
         float idealY = EvaluateLine(x);
         float diff = Mathf.Abs(y - idealY);
-        return new Color(1, 0, 0, 1f - diff / thickness / texture.width);
+        isAboveLine = y > idealY;
+        return 1f - diff / thickness / texture.width;
     }
 
     private float EvaluateLine(int x)
@@ -54,10 +56,17 @@ public class ImageTransitioner : MonoBehaviour
         {
             for (int y = 0; y < texture.height; y++)
             {
-                var lineColor = EvaluateLineColor(x, y);
-                Color previousStoryPixel = previousStoryPixels[y * texture.width + x];
-                Color currentStoryPixel = currentStoryPixels[y * texture.width + x];
-                pixels[y * texture.width + x] = Color.Lerp(previousStoryPixel, currentStoryPixel, lineColor.a);
+                int singleDimensionalIndex = y * texture.width + x;
+                var lineAplha = EvaluateLineAlpha(x, y, out bool isAboveLine);
+                Color currentStoryPixel = currentStoryPixels[singleDimensionalIndex];
+                if (!isAboveLine)
+                {
+                    pixels[singleDimensionalIndex] = Color.Lerp(currentStoryPixel, glowColor, lineAplha);
+                    continue;
+                }
+                Color previousStoryPixel = previousStoryPixels[singleDimensionalIndex];
+                Color pixel = Color.Lerp(previousStoryPixel, currentStoryPixel, lineAplha);
+                pixels[singleDimensionalIndex] = Color.Lerp(pixel, glowColor, lineAplha);
             }
         }
         texture.SetPixels(pixels);
