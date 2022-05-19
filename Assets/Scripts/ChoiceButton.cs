@@ -7,19 +7,17 @@ using UnityEngine.UI;
 
 public class ChoiceButton : MonoBehaviour
 {
-    [SerializeField] Button choiceButton;
     [SerializeField] Text choiceText;
-    public DecisionAnimation decisionAnimation;
-    public AfterChoiceAnimation afterChoice;
     public int index;
     public Text text;
     public GameObject rootGameObject;
 
+    public event Action<int> OnChosen;
+
     [UsedImplicitly()]
     public void HandleChoiceMade()
     {
-        decisionAnimation.ChooseDecision(index);
-        afterChoice.PerformAnimation();
+        OnChosen?.Invoke(index);
     }
 
     internal void SetText(string textToSet)

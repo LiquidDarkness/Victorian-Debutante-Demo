@@ -12,7 +12,7 @@ public class StoryManager : MonoBehaviour
     private const string savedStoryKey = "savedStoryKey";
     public static Story firstStory;
     public StoryDisplayer storyDisplayer;
-    private Story currentStory;
+    [NonSerialized] public Story currentStory;
 
     public static Story SavedStory {
         get

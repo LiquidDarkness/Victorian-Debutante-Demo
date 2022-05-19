@@ -7,8 +7,6 @@ public class TextInstantiator : MonoBehaviour
 {
     public ChoiceButton choicePrefab;
     public Transform storyTextsContainer;
-    public DecisionAnimation decisionAnimation;
-    public AfterChoiceAnimation afterChoice;
     [NonSerialized, HideInInspector]
     public List<ChoiceButton> buttons = new List<ChoiceButton>();
 
@@ -27,8 +25,6 @@ public class TextInstantiator : MonoBehaviour
             choiceButton = Instantiate(choicePrefab, storyTextsContainer);
             choiceButton.index = i;
             buttons.Add(choiceButton);
-            choiceButton.decisionAnimation = decisionAnimation;
-            choiceButton.afterChoice = afterChoice;
         }
     }
 
