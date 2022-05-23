@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cf7fcf7d54409408c5addf1880db36, type: 3}
   m_Name: endingDoctress
   m_EditorClassIdentifier: 
-  storyTexts: {fileID: 11400000, guid: 6dde61ede2d963648bb5c1abef405265, type: 2}
+  storyTexts: {fileID: 11400000, guid: 2052cf887ced8ee4bbebdef26c32df60, type: 2}
   nextStory: {fileID: 0}
+  storyMusic: {fileID: 0}
   pivotsData: []

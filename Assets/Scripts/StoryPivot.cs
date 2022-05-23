@@ -9,13 +9,15 @@ public class StoryPivot : Story
 {
     public const char separator = ',';
     public List<Story> stories = new List<Story>();
-    private List<int> endingPoints;
+    [SerializeField, HideInInspector] private List<int> endingPoints = new List<int>();
     private const string savingKey = "BaseEndingValuesKey";
         //"savingKey serves as key in PlayerPrefs.SetString alongside savingData";
     public override Story NextStory => GetResultingStory();
+    public bool isInitialized = false;
 
-    public void Awake()
+    public void Init()
     {
+        isInitialized = true;
         if (PlayerPrefs.HasKey(savingKey))
         {
             string savingData = PlayerPrefs.GetString(savingKey);
@@ -23,6 +25,18 @@ public class StoryPivot : Story
             return;
         }
         endingPoints = new List<int>(stories.Count);
+        // TODO: Count shows 0, why?
+
+        // endingPoints.Insert(0, 0);
+        // endingPoints.Insert(1, 0);
+        // endingPoints.Insert(2, 0);
+        // endingPoints.Insert(3, 0);
+        for (int itemIndex = 0; itemIndex < stories.Count; itemIndex++)
+        {
+            endingPoints.Add(0);
+        }
+        Debug.Log("Endingpoints.Count:" + endingPoints.Count);
+        Debug.Log("Endingpoints.Count:" + stories.Count);
     }
 
     private List<int> ConvertData(string savingData)
@@ -59,17 +73,24 @@ public class StoryPivot : Story
 
     public void AddEndingPoints(int value, Story endingStory)
     {
+        if (!isInitialized)
+        {
+            Init();
+        }
+        Debug.Log(endingStory.name);
         for (int i = 0; i < stories.Count; i++)
         {
             Story story = stories[i];
 
             if (story == endingStory)
             {
+                Debug.Log("Found story at " + i);
                 endingPoints[i] += value;
                 SaveEndingData();
-                return; // pêtla wykona siê tylko tyle razy, ile jest potrzebnych, ¿eby spe³niæ warunek ifa.
+                return; // the loop will be processed as many times as needed for the if condition to be met.
             }
         }
+        Debug.Log("No ending found");
     }
 
     private void SaveEndingData()

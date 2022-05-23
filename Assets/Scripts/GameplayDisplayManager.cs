@@ -21,6 +21,7 @@ public class GameplayDisplayManager : MonoBehaviour
             choiceButton.OnChosen += HandleChoiceMade;
         }
         continueButton.onClick.AddListener(HandleContinueButtonClicked);
+        storyPivot.Init();
     }
     public void HandleChoiceMade(int index)
     {

@@ -26,6 +26,8 @@ public class StoryDisplayer : MonoBehaviour
         textDisplay.text = story.StoryText;
         textInstantiator.FillTexts(story.GetDecision, story.DecisionCount);
     }
+
+    // TODO: Response text textComponent not connected
     internal void DisplayResponseText(string decisionText)
     {
         decisionDisplay.text = decisionText;
