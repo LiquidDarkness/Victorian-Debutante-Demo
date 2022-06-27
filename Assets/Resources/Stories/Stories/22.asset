@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 22
   m_EditorClassIdentifier: 
   storyTexts: {fileID: 11400000, guid: 2f82720a94b4f1241a438d0520d6ebb6, type: 2}
-  nextStory: {fileID: 11400000, guid: 97d3171ae350d4147844b0ac26d75597, type: 2}
-  storyMusic: {fileID: 0}
+  nextStory: {fileID: 11400000, guid: b4a014da6a9a86f49b32093d561cbe20, type: 2}
+  introStoryMusic: {fileID: 0}
+  storyMusicLoop: {fileID: 8300000, guid: 87ca6a3112b3b624a8a8d1ee3202dff3, type: 3}
   pivotsData:
   - pointsData:
     - points: 10

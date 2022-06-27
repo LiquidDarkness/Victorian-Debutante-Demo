@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ImageTransitioner : MonoBehaviour
 {
-    public Sprite firstSprite, secondSprite;
+    [SerializeField] Sprite firstSprite, secondSprite;
     Texture2D texture;
     public Image image;
     public Color glowColor;
@@ -21,8 +21,17 @@ public class ImageTransitioner : MonoBehaviour
     private Color[] previousStoryPixels;
     private Color[] currentStoryPixels;
 
+    public Sprite FirstSprite
+    {
+        set 
+        { 
+            firstSprite = value;
+            image.sprite = firstSprite;
+        }
+    }
+
     // Start is called before the first frame update
-    void Start()
+    void TransitionInit()
     {
         texture = new Texture2D(firstSprite.texture.width, secondSprite.texture.height);
         image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one / 2f);
@@ -74,8 +83,11 @@ public class ImageTransitioner : MonoBehaviour
     }
 
     [ContextMenu("Test")]
-    private void Test()
+    public void StartLineAnimation(Sprite storyImage)
     {
+        secondSprite = storyImage;
+        TransitionInit();
+        firstSprite = storyImage;
         StartCoroutine(LineAnimationRoutine());
     }
     IEnumerator LineAnimationRoutine()

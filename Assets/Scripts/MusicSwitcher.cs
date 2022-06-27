@@ -7,19 +7,23 @@ public class MusicSwitcher : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip startingClip;
-    public float volumeDownBy;
-    public float volumeUpBy;
+    //public float volumeDownBy;
+    //public float volumeUpBy;
+    public float fadeoutTime;
+    public float timeElapsed = 0;
 
     public void Start()
     {
         audioSource.clip = startingClip;
         audioSource.Play();
     }
+    /*
     public void Awake()
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 30;
     }
+    */
 
     public void SwitchAudio(AudioClip audioClip)
     {
@@ -28,20 +32,39 @@ public class MusicSwitcher : MonoBehaviour
 
     private IEnumerator SwitchAudioRoutine(AudioClip audioClip)
     {
+        /*
         while (audioSource.volume > 0)
         {
             audioSource.volume -= volumeDownBy;
             yield return null;
         }
+        */
+
+        while (timeElapsed < fadeoutTime)
+        {
+            audioSource.volume = Mathf.Lerp(1, 0, timeElapsed / fadeoutTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         audioSource.clip = audioClip;
+        timeElapsed = 0;
         yield return null;
 
+        while (timeElapsed < fadeoutTime)
+        {
+            audioSource.volume = Mathf.Lerp(0, 1, timeElapsed / fadeoutTime);
+            timeElapsed += Time.deltaTime;
+            audioSource.Play();
+            yield return null;
+        }
+        /*
         while (audioSource.volume < 1)
         {
             audioSource.volume += volumeUpBy;
             yield return null;
         }
+        */
     }
 
     public AudioClip testClip;

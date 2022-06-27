@@ -8,7 +8,8 @@ public class Story : ScriptableObject
 {
     [SerializeField] LocalizableText storyTexts;
     [SerializeField] Story nextStory;
-    public AudioClip storyMusic;
+    public AudioClip introStoryMusic;
+    public AudioClip storyMusicLoop;
     public PivotData[] pivotsData;
     public int DecisionCount { get => 4; }
     public virtual Story NextStory { get => nextStory; }

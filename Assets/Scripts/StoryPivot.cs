@@ -25,7 +25,6 @@ public class StoryPivot : Story
             return;
         }
         endingPoints = new List<int>(stories.Count);
-        // TODO: Count shows 0, why?
 
         // endingPoints.Insert(0, 0);
         // endingPoints.Insert(1, 0);
@@ -77,14 +76,14 @@ public class StoryPivot : Story
         {
             Init();
         }
-        Debug.Log(endingStory.name);
+        //Debug.Log(endingStory.name);
         for (int i = 0; i < stories.Count; i++)
         {
             Story story = stories[i];
 
             if (story == endingStory)
             {
-                Debug.Log("Found story at " + i);
+                //Debug.Log("Found story at " + i);
                 endingPoints[i] += value;
                 SaveEndingData();
                 return; // the loop will be processed as many times as needed for the if condition to be met.

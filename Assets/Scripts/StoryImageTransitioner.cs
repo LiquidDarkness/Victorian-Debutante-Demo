@@ -66,7 +66,9 @@ public class StoryImageTransitioner : MonoBehaviour
         glossTexture2D.SetPixels(glossColors);
         glossTexture2D.Apply();
 
-        return; 
+        //TODO: Tu mi wywala b³¹dzik i tbh, nie pamiêtam, dlaczego zrobiliœmy to, co zrobiliœmy xd
+        //return; 
+
         for (int x = 0; x < storyTexture.width; x++)
         {
             for (int y = 0; y < storyTexture.height; y++)

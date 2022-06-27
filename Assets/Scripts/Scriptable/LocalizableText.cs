@@ -12,7 +12,7 @@ public class LocalizableText : ScriptableObject
     public static void LoadAllTexts()
     {
         LocalizableText[] texts = Resources.LoadAll<LocalizableText>(string.Empty);
-        Debug.Log($"Found: {texts.Length}");
+        //Debug.Log($"Found: {texts.Length}");
         foreach (var item in texts)
         {
             item.LoadTexts();

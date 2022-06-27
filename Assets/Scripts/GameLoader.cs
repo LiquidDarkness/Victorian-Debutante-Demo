@@ -4,18 +4,27 @@ using UnityEngine.SceneManagement;
 public class GameLoader : MonoBehaviour
 {
     public Object scene;
-    public Story firstStory;
+    public GameObject creditsWindow;
+
 
     public void NewGame()
     {
         PersistentSettings.PurgePlayerPrefs();
-        StoryManager.firstStory = firstStory;
         SceneManager.LoadScene(scene.name);
     }
 
     public void ContinueGame()
     {
-        StoryManager.firstStory = StoryManager.SavedStory;
         SceneManager.LoadScene(scene.name);
+    }
+
+    public void OpenCreditsWindow()
+    {
+        creditsWindow.SetActive(true);
+    }
+
+    public void CloseCreditsWindow()
+    {
+        creditsWindow.SetActive(false);
     }
 }

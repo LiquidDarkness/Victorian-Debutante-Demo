@@ -10,9 +10,9 @@ public class StoryManager : MonoBehaviour
     private const string storiesLocationInResources = "Stories/Stories/";
     private const string failsafeStory = "01";
     private const string savedStoryKey = "savedStoryKey";
-    public static Story firstStory;
-    public StoryDisplayer storyDisplayer;
     [NonSerialized] public Story currentStory;
+    [SerializeField] Story firstStory;
+    [SerializeField] StoryDisplayer storyDisplayer;
 
     public static Story SavedStory {
         get
@@ -30,11 +30,12 @@ public class StoryManager : MonoBehaviour
 
     void Awake()
     {
-        currentStory = firstStory ?? SavedStory;
+        currentStory = SavedStory ?? firstStory;
     }
 
     private void Start()
     {
+        Debug.Log(currentStory);
         storyDisplayer.DisplayStory(currentStory);
     }
 

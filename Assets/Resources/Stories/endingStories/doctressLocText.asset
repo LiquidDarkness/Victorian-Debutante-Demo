@@ -12,15 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f035ca1531aa64583647e08a81b37e, type: 3}
   m_Name: doctressLocText
   m_EditorClassIdentifier: 
-  texts:
-    Language: 
-    StoryText: 
-    DecisionA: 
-    ResultA: 
-    DecisionB: 
-    ResultB: 
-    DecisionC: 
-    ResultC: 
-    DecisionD: 
-    ResultD: 
-  json: {fileID: 4900000, guid: 54a314c9628c6414cbcae1901f55f2ce, type: 3}
+  json: {fileID: 4900000, guid: ff17748be0987224aa344edee536a961, type: 3}
