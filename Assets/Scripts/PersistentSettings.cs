@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: zapisaæ informacjê, ¿e gracz chce lub nie chce wyœwietlac wiêcej NotifyWindow (checkbox)
 public static class PersistentSettings
 {
     static List<int> valuesToCache;

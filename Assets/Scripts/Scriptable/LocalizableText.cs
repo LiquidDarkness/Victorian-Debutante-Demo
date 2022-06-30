@@ -8,20 +8,13 @@ public class LocalizableText : ScriptableObject
     public TextAsset json;
     public Dictionary<string, StoryTexts> translations = new Dictionary<string, StoryTexts>();
 
-    [RuntimeInitializeOnLoadMethod] //Ten atrybut automatycznie wykonuje statyczną metodę, do której jest podpisany.
-    public static void LoadAllTexts()
-    {
-        LocalizableText[] texts = Resources.LoadAll<LocalizableText>(string.Empty);
-        //Debug.Log($"Found: {texts.Length}");
-        foreach (var item in texts)
-        {
-            item.LoadTexts();
-        }
-    }
-
     [ContextMenu("LoadTexts")]
-    private void LoadTexts()
+    public void LoadTexts()
     {
+        if (translations.Count > 0)
+        {
+            return;
+        }
         ListWrapper wrapper = JsonUtility.FromJson<ListWrapper>(json.text);
         foreach (StoryTexts item in wrapper.Entries)
         {

@@ -30,7 +30,6 @@ public class ImageTransitioner : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void TransitionInit()
     {
         texture = new Texture2D(firstSprite.texture.width, secondSprite.texture.height);

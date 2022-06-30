@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "LiquidDarkness/" + nameof(Story))]
 public class Story : ScriptableObject
 {
-    [SerializeField] LocalizableText storyTexts;
+    [SerializeReference] LocalizableText storyTexts;
     [SerializeField] Story nextStory;
     public AudioClip introStoryMusic;
     public AudioClip storyMusicLoop;
@@ -91,6 +91,11 @@ public class Story : ScriptableObject
     public void Test()
     {
         Debug.Log(StoryText);
+    }
+
+    public void OnEnable()
+    {
+        storyTexts.LoadTexts();
     }
 
     [Serializable]
