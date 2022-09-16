@@ -15,41 +15,41 @@ MonoBehaviour:
   storyTexts: {fileID: 11400000, guid: 577cc45fbe97a5e4fbdf625b647fbbd3, type: 2}
   nextStory: {fileID: 11400000, guid: ecca9dbda596ffe4684dfd254acc66ff, type: 2}
   introStoryMusic: {fileID: 0}
-  storyMusicLoop: {fileID: 8300000, guid: 2b8e8c503d51d104eba342add209f0f3, type: 3}
+  storyMusicLoop: {fileID: 8300000, guid: 7dda443fe15d972498d3b65bc2e0348b, type: 3}
   pivotsData:
   - pointsData:
-    - points: 7
-      story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
-    - points: 5
-      story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
-    - points: 10
-      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
-    - points: 2
-      story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}
-  - pointsData:
-    - points: 2
-      story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
-    - points: 7
-      story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
-    - points: 5
-      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
-    - points: 10
-      story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}
-  - pointsData:
     - points: 2
       story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
     - points: 10
       story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
-    - points: 7
-      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
     - points: 5
+      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
+    - points: 7
       story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}
   - pointsData:
     - points: 10
       story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
     - points: 2
       story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
-    - points: 5
-      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
     - points: 7
+      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
+    - points: 2
+      story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}
+  - pointsData:
+    - points: 7
+      story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
+    - points: 5
+      story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
+    - points: 2
+      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
+    - points: 10
+      story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}
+  - pointsData:
+    - points: 2
+      story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
+    - points: 7
+      story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
+    - points: 10
+      story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
+    - points: 5
       story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}

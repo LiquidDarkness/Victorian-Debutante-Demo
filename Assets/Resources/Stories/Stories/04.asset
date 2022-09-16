@@ -15,7 +15,7 @@ MonoBehaviour:
   storyTexts: {fileID: 11400000, guid: a752ee308ad169540a5292e14cd4fce9, type: 2}
   nextStory: {fileID: 11400000, guid: cac7f100ee34583418e84d48dbe983eb, type: 2}
   introStoryMusic: {fileID: 0}
-  storyMusicLoop: {fileID: 8300000, guid: 8f398ca79a1f4d5438a6d3345e2f1d57, type: 3}
+  storyMusicLoop: {fileID: 8300000, guid: feda6942de7760e4ca8d2656f8e4beff, type: 3}
   pivotsData:
   - pointsData:
     - points: 7

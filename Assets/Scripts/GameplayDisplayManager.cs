@@ -17,11 +17,15 @@ public class GameplayDisplayManager : MonoBehaviour
     public StoryDisplayer storyDisplayer;
     public ImageTransitioner imageTransitioner;
     public MusicSwitcher musicSwitcher;
+    public Text continueText;
+    public Image continueArrow;
 
     public void Start()
     {
         imageTransitioner.FirstSprite = storyManager.currentStory.StoryImage;
         continueButton.interactable = false;
+        continueText.enabled = false;
+        continueArrow.enabled = false;
         foreach (var choiceButton in textInstantiator.buttons)
         {
             choiceButton.OnChosen += HandleChoiceMade;
@@ -40,11 +44,15 @@ public class GameplayDisplayManager : MonoBehaviour
         afterChoiceAnimation.PerformAnimation();
         storyDisplayer.DisplayResponseText(storyManager.currentStory.GetResult(index));
         continueButton.interactable = true;
+        continueText.enabled = true;
+        continueArrow.enabled = true;
     }
 
     private void HandleContinueButtonClicked()
     {
         continueButton.interactable = false;
+        continueText.enabled = false;
+        continueArrow.enabled = false;
         storyDisplayer.DisplayResponseText(null);
         StartCoroutine(SwitchingStoryRoutine(storyManager.currentStory));
     }

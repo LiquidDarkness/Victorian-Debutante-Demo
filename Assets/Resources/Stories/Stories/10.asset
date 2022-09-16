@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10
   m_EditorClassIdentifier: 
   storyTexts: {fileID: 11400000, guid: 13384d507f703704cb9e5cd8dbde328b, type: 2}
-  nextStory: {fileID: 11400000, guid: f6d9ca6ce239c81438b5eb78c7d0ee45, type: 2}
+  nextStory: {fileID: 11400000, guid: 8de01216ff56c874da5e585c7620a166, type: 2}
   introStoryMusic: {fileID: 0}
   storyMusicLoop: {fileID: 8300000, guid: 2b8e8c503d51d104eba342add209f0f3, type: 3}
   pivotsData:
@@ -38,18 +38,18 @@ MonoBehaviour:
   - pointsData:
     - points: 2
       story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
-    - points: 10
+    - points: 7
       story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
-    - points: 10
+    - points: 5
       story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
     - points: 10
       story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}
   - pointsData:
-    - points: 2
+    - points: 7
       story: {fileID: 11400000, guid: 3f13fe3d1b1d1a348999a799ab44be6f, type: 2}
-    - points: 10
+    - points: 5
       story: {fileID: 11400000, guid: 30ab9fe2a8237df499c107cc65cf8bf0, type: 2}
     - points: 10
       story: {fileID: 11400000, guid: 41f562e0652cd974ba3b9ffd6c506f4d, type: 2}
-    - points: 10
+    - points: 2
       story: {fileID: 11400000, guid: 0007e206a4b12d24fa53f90fc8088934, type: 2}

@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3f035ca1531aa64583647e08a81b37e, type: 3}
-  m_Name: wifeLocText
+  m_Name: brideLocText
   m_EditorClassIdentifier: 
   json: {fileID: 4900000, guid: b02b4d23768c9f04aaf17a5745d645db, type: 3}

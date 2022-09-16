@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class StoryManager : MonoBehaviour
 {
+    public Button finishedGameButton;
     private const string storiesLocationInResources = "Stories/Stories/";
     private const string failsafeStory = "01";
     private const string savedStoryKey = "savedStoryKey";
@@ -30,11 +31,13 @@ public class StoryManager : MonoBehaviour
 
     void Awake()
     {
+       // finishedGameButton.enabled = false;
         currentStory = SavedStory ?? firstStory;
     }
 
     private void Start()
     {
+        finishedGameButton.interactable = false;
         Debug.Log(currentStory);
         storyDisplayer.DisplayStory(currentStory);
     }
@@ -49,11 +52,24 @@ public class StoryManager : MonoBehaviour
             storyDisplayer.DisplayStory(currentStory);
             return;
         }
+        else
+        {
+            finishedGameButtonSwitcher();
+        }
     }
 
     private Story LoadNextStory()
     {
         return currentStory.NextStory;
+    }
+
+    public void finishedGameButtonSwitcher()
+    {
+        if (finishedGameButton.interactable == false)
+        {
+            finishedGameButton.interactable = true;
+        }
+
     }
 
     /*

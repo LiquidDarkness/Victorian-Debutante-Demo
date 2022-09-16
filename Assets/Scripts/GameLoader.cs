@@ -1,21 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameLoader : MonoBehaviour
 {
-    public Object scene;
+    public SceneReference scene;
     public GameObject creditsWindow;
 
 
     public void NewGame()
     {
         PersistentSettings.PurgePlayerPrefs();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(scene.SceneName);
     }
 
     public void ContinueGame()
     {
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(scene.SceneName);
     }
 
     public void OpenCreditsWindow()

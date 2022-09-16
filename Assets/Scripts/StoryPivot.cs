@@ -11,9 +11,10 @@ public class StoryPivot : Story
     public List<Story> stories = new List<Story>();
     [SerializeField, HideInInspector] private List<int> endingPoints = new List<int>();
     private const string savingKey = "BaseEndingValuesKey";
-        //"savingKey serves as key in PlayerPrefs.SetString alongside savingData";
+    //"savingKey serves as key in PlayerPrefs.SetString alongside savingData";
     public override Story NextStory => GetResultingStory();
     public bool isInitialized = false;
+    public int endingsReached;
 
     public void Init()
     {
@@ -67,6 +68,17 @@ public class StoryPivot : Story
             }
         }
 
+        if (endingsReached == 8)
+        {
+            endingsReached = 0;
+        }
+
+        else
+        {
+            endingsReached += 1;
+        }
+        //TODO: why endingsReached go up 2, instead of 1
+        Debug.Log("Endings reached:" + endingsReached);
         return stories[highestEndingIndex];
     }
 
