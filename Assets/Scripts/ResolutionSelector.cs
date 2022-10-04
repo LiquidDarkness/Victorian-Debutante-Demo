@@ -53,5 +53,6 @@ public class ResolutionSelector : MonoBehaviour
     public void MakeSettingPersistent()
     {
         PersistentSettings.PreservePlayerPref(ResolutionKey);
+
     }
 }

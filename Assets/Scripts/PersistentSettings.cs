@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: zapisaæ informacjê, ¿e gracz chce lub nie chce wyœwietlac wiêcej NotifyWindow (checkbox)
 public static class PersistentSettings
 {
-    static List<int> valuesToCache;
+    static List<float> valuesToCache;
     static HashSet<string> keysToGrab = new HashSet<string>();
 
     public static void PurgePlayerPrefs()
@@ -20,21 +19,23 @@ public static class PersistentSettings
     {
         keysToGrab.Add(key);
     }
+
     private static void CacheSettingsData()
     {
         foreach (string key in keysToGrab)
         {
-            valuesToCache.Add(PlayerPrefs.GetInt(key));
+            valuesToCache.Add(PlayerPrefs.GetFloat(key));
         }
        // valuesToCache.Add(PlayerPrefs.GetInt("A")); // 69
        // valuesToCache.Add(PlayerPrefs.GetInt("B")); // 42
     }
+
     private static void RestoreFromCache()
     {
         int index = 0;
         foreach (string key in keysToGrab)
         {
-            PlayerPrefs.SetInt(key, valuesToCache[index]);
+            PlayerPrefs.SetFloat(key, valuesToCache[index]);
             index++;
         }
        // PlayerPrefs.SetInt("A", valuesToCache[0]);

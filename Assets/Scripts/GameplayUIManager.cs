@@ -43,4 +43,12 @@ public class GameplayUIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void EscButtonFunctionality()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            notifWindow.SetActive(true);
+        }
+    }
 }

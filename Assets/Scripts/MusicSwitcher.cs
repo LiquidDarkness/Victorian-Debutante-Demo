@@ -9,6 +9,8 @@ public class MusicSwitcher : MonoBehaviour
     public AudioClip startingClip;
     public float fadeoutTime;
     public float timeElapsed = 0;
+    public AnimationCurve testUp, testDown;
+
 
     public void Start()
     {
@@ -23,22 +25,27 @@ public class MusicSwitcher : MonoBehaviour
 
     private IEnumerator SwitchAudioRoutine(AudioClip audioClip)
     {
+        timeElapsed = 0;
+        float referenceTime = Time.realtimeSinceStartup;
         while (timeElapsed < fadeoutTime)
         {
-            audioSource.volume = Mathf.Lerp(1, 0, timeElapsed / fadeoutTime);
-            timeElapsed += Time.deltaTime;
+            float targetVolume = Mathf.Lerp(0, 1, timeElapsed / fadeoutTime);
+            audioSource.volume = testDown.Evaluate(targetVolume);
+            timeElapsed = Time.realtimeSinceStartup - referenceTime;
             yield return null;
         }
 
         audioSource.clip = audioClip;
         timeElapsed = 0;
         yield return null;
+        referenceTime = Time.realtimeSinceStartup;
+        audioSource.Play();
 
         while (timeElapsed < fadeoutTime)
         {
-            audioSource.volume = Mathf.Lerp(0, 1, timeElapsed / fadeoutTime);
-            timeElapsed += Time.deltaTime;
-            audioSource.Play();
+            float targetVolume = Mathf.Lerp(0, 1, timeElapsed / fadeoutTime);
+            audioSource.volume = testUp.Evaluate(targetVolume);
+            timeElapsed = Time.realtimeSinceStartup - referenceTime;
             yield return null;
         }
 
@@ -50,6 +57,4 @@ public class MusicSwitcher : MonoBehaviour
     {
         SwitchAudio(testClip);
     }
-
-    //TODO: W DOMU wywaliæ awake i zrobiæ tak, ¿eby dzia³a³o na czas, nie na stepy(volumeUp/DownBy).
 }

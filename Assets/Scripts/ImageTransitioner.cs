@@ -91,6 +91,7 @@ public class ImageTransitioner : MonoBehaviour
     }
     IEnumerator LineAnimationRoutine()
     {
+        //yield break;
         float animationTime = 0;
         while (animationTime < duration)
         {

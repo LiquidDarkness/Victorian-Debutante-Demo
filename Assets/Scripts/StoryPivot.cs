@@ -14,7 +14,6 @@ public class StoryPivot : Story
     //"savingKey serves as key in PlayerPrefs.SetString alongside savingData";
     public override Story NextStory => GetResultingStory();
     public bool isInitialized = false;
-    public int endingsReached;
 
     public void Init()
     {
@@ -67,18 +66,6 @@ public class StoryPivot : Story
                 highestEndingIndex = index;
             }
         }
-
-        if (endingsReached == 8)
-        {
-            endingsReached = 0;
-        }
-
-        else
-        {
-            endingsReached += 1;
-        }
-        //TODO: why endingsReached go up 2, instead of 1
-        Debug.Log("Endings reached:" + endingsReached);
         return stories[highestEndingIndex];
     }
 

@@ -5,12 +5,12 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO: najprawdopodobniej powinien wywp³ywaæ te¿ endingi.
 public class GameplayDisplayManager : MonoBehaviour
 {
     public DecisionAnimation decisionAnimation;
     public AfterChoiceAnimation afterChoiceAnimation;
     public Button continueButton;
+    public Button afterEndingButton;
     public TextInstantiator textInstantiator;
     public StoryManager storyManager;
     public StoryPivot storyPivot;
@@ -24,6 +24,7 @@ public class GameplayDisplayManager : MonoBehaviour
     {
         imageTransitioner.FirstSprite = storyManager.currentStory.StoryImage;
         continueButton.interactable = false;
+        afterEndingButton.interactable = false;
         continueText.enabled = false;
         continueArrow.enabled = false;
         foreach (var choiceButton in textInstantiator.buttons)
@@ -43,6 +44,14 @@ public class GameplayDisplayManager : MonoBehaviour
         decisionAnimation.ChooseDecision(index);
         afterChoiceAnimation.PerformAnimation();
         storyDisplayer.DisplayResponseText(storyManager.currentStory.GetResult(index));
+        if (storyManager.currentStory.name.Contains("ending") == true)
+        {
+            continueButton.interactable = false;
+            continueText.enabled = false;
+            continueArrow.enabled = false;
+            afterEndingButton.interactable = true;
+        }
+        //TODO: nie dzia³a, why?
         continueButton.interactable = true;
         continueText.enabled = true;
         continueArrow.enabled = true;
@@ -76,8 +85,3 @@ public class GameplayDisplayManager : MonoBehaviour
         
     }
 }
-
-// TODO: responseLoaded bool doesn't do the job: the button is still interactable when it shouldn't be.
-// To, co siê dzieje na scenie potrzebuje swojej klasy, która bêdzie tym wszystkim zarz¹dzaæ (GameplayDisplayManager, AnimationManager, ???)
-// Dziêki temu, bêdzie mo¿na wo³aæ rownie¿ SetupForDisplay i RestoreDecisions z poziomu kodu.
-// TODO: disabln¹æ buttonek do przechodzenia do nastêpnej story do momentu podjêcia decyzji (do klasy wy¿ej)

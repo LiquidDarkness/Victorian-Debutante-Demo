@@ -11,4 +11,11 @@ public class SetVolume : MonoBehaviour
     {
         musicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderVolume) * 20);
     }
+
+    public void SaveVolumeLevel()
+    {
+        PersistentSettings.PreservePlayerPref(musicMixer.name);
+    }
+
+    //TODO: save slider's value in persistentsettings. save by the mixer's name, yay.
 }
