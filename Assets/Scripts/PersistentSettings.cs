@@ -5,8 +5,12 @@ using UnityEngine;
 
 public static class PersistentSettings
 {
-    static List<float> valuesToCache;
-    static HashSet<string> keysToGrab = new HashSet<string>();
+    static List<int> intsToCache = new List<int>();
+    static List<float> floatsToCache = new List<float>();
+    static List<string> stringsToCache = new List<string>();
+    static HashSet<string> intKeysToGrab = new HashSet<string>();
+    static HashSet<string> floatKeysToGrab = new HashSet<string>();
+    static HashSet<string> stringKeysToGrab = new HashSet<string>();
 
     public static void PurgePlayerPrefs()
     {
@@ -15,16 +19,41 @@ public static class PersistentSettings
         RestoreFromCache();
     }
 
-    public static void PreservePlayerPref(string key)
+    public static void PreservePlayerPref(TypeDistinguisher typeDistinguisher)
     {
-        keysToGrab.Add(key);
+        switch (typeDistinguisher.prefType)
+        {
+            case TypeDistinguisher.PlayerPrefType.INT:
+                intKeysToGrab.Add(typeDistinguisher.PrefsKey);
+                break;
+            case TypeDistinguisher.PlayerPrefType.FLOAT:
+                floatKeysToGrab.Add(typeDistinguisher.PrefsKey);
+                break;
+            case TypeDistinguisher.PlayerPrefType.STRING:
+                stringKeysToGrab.Add(typeDistinguisher.PrefsKey);
+                break;
+            default:
+                break;
+        }
     }
-
+    //TODO: DONE dopisaæ foreache dla brakuj¹cych kolekcji
     private static void CacheSettingsData()
     {
-        foreach (string key in keysToGrab)
+        intsToCache.Clear();
+        floatsToCache.Clear();
+        stringsToCache.Clear();
+
+        foreach (string key in intKeysToGrab)
         {
-            valuesToCache.Add(PlayerPrefs.GetFloat(key));
+            intsToCache.Add(PlayerPrefs.GetInt(key));
+        }      
+        foreach (string key in floatKeysToGrab)
+        {
+            floatsToCache.Add(PlayerPrefs.GetFloat(key));
+        }        
+        foreach (string key in stringKeysToGrab)
+        {
+            stringsToCache.Add(PlayerPrefs.GetString(key));
         }
        // valuesToCache.Add(PlayerPrefs.GetInt("A")); // 69
        // valuesToCache.Add(PlayerPrefs.GetInt("B")); // 42
@@ -32,17 +61,45 @@ public static class PersistentSettings
 
     private static void RestoreFromCache()
     {
-        int index = 0;
-        foreach (string key in keysToGrab)
-        {
-            PlayerPrefs.SetFloat(key, valuesToCache[index]);
-            index++;
-        }
+        RestoreIntFromCache();
+        RestoreFloatFromCache();
+        RestoreStringFromCache();
+
        // PlayerPrefs.SetInt("A", valuesToCache[0]);
        // PlayerPrefs.SetInt("B", valuesToCache[1]);
     }
 
-    
+    private static void RestoreStringFromCache()
+    {
+        int index = 0;
+        foreach (string key in stringKeysToGrab)
+        {
+            PlayerPrefs.SetString(key, stringsToCache[index]);
+            index++;
+        }
+    }
+
+    private static void RestoreFloatFromCache()
+    {
+        int index = 0;
+        foreach (string key in floatKeysToGrab)
+        {
+            PlayerPrefs.SetFloat(key, floatsToCache[index]);
+            index++;
+        }
+    }
+
+    private static void RestoreIntFromCache()
+    {
+        int index = 0;
+        foreach (string key in intKeysToGrab)
+        {
+            PlayerPrefs.SetInt(key, intsToCache[index]);
+            index++;
+        }
+    }
+
+
     /* public static List<int> listaIntów;
 
     public static void TyruRyru(int doUsuniêcia) // 2

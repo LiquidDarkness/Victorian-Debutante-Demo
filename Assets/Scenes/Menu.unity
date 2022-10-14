@@ -1483,6 +1483,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetWindow: {fileID: 1161542429}
+--- !u!1 &872674721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 872674723}
+  - component: {fileID: 872674722}
+  m_Layer: 0
+  m_Name: MenuBackgroungmanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &872674722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872674721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76ae257998ae9247b4ac789a616e3cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuAlternatives:
+  - {fileID: 21300000, guid: 468115d9b3ad9094cac13361f8a24cb4, type: 3}
+  - {fileID: 21300000, guid: 0db18c1f40305a4418810d3ea5737c09, type: 3}
+  - {fileID: 21300000, guid: 34f8a9012d2d8714fb173f26c99890a9, type: 3}
+  - {fileID: 21300000, guid: 34f8a9012d2d8714fb173f26c99890a9, type: 3}
+  menuBackground: {fileID: 1934711069}
+--- !u!4 &872674723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872674721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 295.20023, y: 273.8141, z: -42.041027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &874999942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3391,6 +3440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63d35b7a336b334f9b069640273e6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutionKey: {fileID: 11400000, guid: bffdf1d4f2e05834982fa4c12b36cdb8, type: 2}
+  windowMode: {fileID: 11400000, guid: 775c07aaba2338842b6f28c77ab7cf22, type: 2}
   resolutionDropdown: {fileID: 662821076}
 --- !u!114 &1729373170
 MonoBehaviour:
@@ -3811,7 +3862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f3b79874de6e227409aa4f9262d4fa50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0df37d693b2c4004693875fb2aedc58f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

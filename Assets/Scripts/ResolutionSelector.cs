@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class ResolutionSelector : MonoBehaviour
 {
-    private const string ResolutionKey = "resolutionKey";
+    public TypeDistinguisher resolutionKey;
+    public TypeDistinguisher windowMode;
     Resolution[] resolutions;
     public Dropdown resolutionDropdown;
+
     void Start()
     {
         resolutions = Screen.resolutions;
@@ -30,7 +32,7 @@ public class ResolutionSelector : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(options);
-        currentResolutionIndex = PlayerPrefs.GetInt(ResolutionKey, currentResolutionIndex);
+        currentResolutionIndex = PlayerPrefs.GetInt(resolutionKey.PrefsKey);
         resolutionDropdown.SetValueWithoutNotify(currentResolutionIndex);
         resolutionDropdown.RefreshShownValue();
     }
@@ -38,21 +40,15 @@ public class ResolutionSelector : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
-        MakeSettingPersistent();
+        PersistentSettings.PreservePlayerPref(windowMode);
+        PlayerPrefs.SetInt(windowMode.PrefsKey, isFullScreen.GetHashCode());
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        PlayerPrefs.SetInt(ResolutionKey, resolutionIndex);
-        MakeSettingPersistent();
-        //TODO: W DOMU NOT DONE? zrobiæ opcjê zapamiêtywania ustawieñ dla ka¿dego ustawienia, poza rozdzielczoœci¹. Mo¿e nowa metoda? (SetBool to tak naprawdê SetInt)
-    }
-
-    public void MakeSettingPersistent()
-    {
-        PersistentSettings.PreservePlayerPref(ResolutionKey);
-
+        PersistentSettings.PreservePlayerPref(resolutionKey);
+        PlayerPrefs.SetInt(resolutionKey.PrefsKey, resolutionIndex);
     }
 }

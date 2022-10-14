@@ -65,11 +65,7 @@ public class StoryManager : MonoBehaviour
 
     public void finishedGameButtonSwitcher()
     {
-        if (finishedGameButton.interactable == false)
-        {
             finishedGameButton.interactable = true;
-        }
-
     }
 
     /*

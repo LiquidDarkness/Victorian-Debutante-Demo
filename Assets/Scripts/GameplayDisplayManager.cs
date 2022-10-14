@@ -63,6 +63,7 @@ public class GameplayDisplayManager : MonoBehaviour
         continueText.enabled = false;
         continueArrow.enabled = false;
         storyDisplayer.DisplayResponseText(null);
+        SteamAchievements.StoriesReadCounter();
         StartCoroutine(SwitchingStoryRoutine(storyManager.currentStory));
     }
 

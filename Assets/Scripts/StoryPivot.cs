@@ -66,6 +66,7 @@ public class StoryPivot : Story
                 highestEndingIndex = index;
             }
         }
+        SteamAchievements.EndingsReachedCountUpper(); //tu wywala b³¹d
         return stories[highestEndingIndex];
     }
 
@@ -83,6 +84,8 @@ public class StoryPivot : Story
             if (story == endingStory)
             {
                 //Debug.Log("Found story at " + i);
+                //Steamworks.SteamUserStats.AddStat("endingsReached", 1);
+                //Steamworks.SteamUserStats.StoreStats();
                 endingPoints[i] += value;
                 SaveEndingData();
                 return; // the loop will be processed as many times as needed for the if condition to be met.
