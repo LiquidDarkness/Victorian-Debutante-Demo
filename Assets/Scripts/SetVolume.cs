@@ -2,22 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SetVolume : MonoBehaviour
 {
     public AudioMixer musicMixer;
-    public float sliderValue;
+    public Slider slider;
+    public float mixerValue;
+    public float properSliderValue;
     public TypeDistinguisher musicVolume;
 
     public void SetVolumeLevel (float sliderVolume)
     {
-        sliderValue = Mathf.Log10(sliderVolume) * 20;
-        musicMixer.SetFloat("MusicVolume", sliderValue);
+        mixerValue = Mathf.Log10(sliderVolume) * 20;
+        musicMixer.SetFloat("MusicVolume", mixerValue);
+        properSliderValue = slider.value;
 
-        PersistentSettings.PreservePlayerPref(musicVolume);
-        PlayerPrefs.SetFloat(musicVolume.PrefsKey, sliderValue);
+        PlayerPrefs.SetFloat(musicVolume.PrefsKey, properSliderValue);
     }
-    //TODO: wczytaæ zapisan¹ wartoœæ z playerprefsów na pocz¹tku gry
-    //TODO: wymysliæ sposób, ¿eby wartoœci z playerprefsów wczytywaæ na pocz¹tku gry
-    //TODO: save slider's value in persistentsettings. save by the mixer's name, yay.
+
+    [RuntimeInitializeOnLoadMethod]
+    public void Awake()
+    {
+        slider.value = PlayerPrefs.GetFloat(musicVolume.PrefsKey);
+        Debug.Log("Setting volume:" + musicMixer.name + slider.value);
+    }
 }

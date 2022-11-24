@@ -16,13 +16,15 @@ public class GameplayDisplayManager : MonoBehaviour
     public StoryPivot storyPivot;
     public StoryDisplayer storyDisplayer;
     public ImageTransitioner imageTransitioner;
+    public TransitionAnimationAlternative transitionAnimation;
     public MusicSwitcher musicSwitcher;
     public Text continueText;
     public Image continueArrow;
 
     public void Start()
     {
-        imageTransitioner.FirstSprite = storyManager.currentStory.StoryImage;
+        //imageTransitioner.FirstSprite = storyManager.currentStory.StoryImage;
+        transitionAnimation.FirstSprite = storyManager.currentStory.StoryImage;
         continueButton.interactable = false;
         afterEndingButton.interactable = false;
         continueText.enabled = false;
@@ -75,7 +77,8 @@ public class GameplayDisplayManager : MonoBehaviour
 
     IEnumerator SwitchingStoryRoutine(Story story)
     {
-        imageTransitioner.StartLineAnimation(storyManager.currentStory.StoryImage);
+        //imageTransitioner.StartLineAnimation(storyManager.currentStory.StoryImage);
+        transitionAnimation.StartChosenAnimationStyle(storyManager.currentStory.StoryImage);
         if (storyManager.currentStory.introStoryMusic != null)
         {
             musicSwitcher.SwitchAudio(story.introStoryMusic);

@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class StoryManager : MonoBehaviour
 {
     public Button finishedGameButton;
+    public Scrollbar scrollbar;
+    public bool demoMode;
     private const string storiesLocationInResources = "Stories/Stories/";
     private const string failsafeStory = "01";
     private const string savedStoryKey = "savedStoryKey";
@@ -15,7 +17,8 @@ public class StoryManager : MonoBehaviour
     [SerializeField] Story firstStory;
     [SerializeField] StoryDisplayer storyDisplayer;
 
-    public static Story SavedStory {
+    public static Story SavedStory 
+    {
         get
         {
             string storyName = PlayerPrefs.GetString(savedStoryKey, failsafeStory);
@@ -54,8 +57,9 @@ public class StoryManager : MonoBehaviour
         }
         else
         {
-            finishedGameButtonSwitcher();
+            FinishedGameButtonSwitcher();
         }
+        scrollbar.value = 1;
     }
 
     private Story LoadNextStory()
@@ -63,9 +67,9 @@ public class StoryManager : MonoBehaviour
         return currentStory.NextStory;
     }
 
-    public void finishedGameButtonSwitcher()
+    public void FinishedGameButtonSwitcher()
     {
-            finishedGameButton.interactable = true;
+        finishedGameButton.interactable = true;
     }
 
     /*

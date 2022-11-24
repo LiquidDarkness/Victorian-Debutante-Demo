@@ -87,9 +87,10 @@ public class ImageTransitioner : MonoBehaviour
         secondSprite = storyImage;
         TransitionInit();
         firstSprite = storyImage;
-        StartCoroutine(LineAnimationRoutine());
+        StartCoroutine(GlowLineAnimation());
     }
-    IEnumerator LineAnimationRoutine()
+
+    public IEnumerator GlowLineAnimation()
     {
         //yield break;
         float animationTime = 0;

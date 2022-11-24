@@ -40,7 +40,6 @@ public class ResolutionSelector : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
-        PersistentSettings.PreservePlayerPref(windowMode);
         PlayerPrefs.SetInt(windowMode.PrefsKey, isFullScreen.GetHashCode());
     }
 
@@ -48,7 +47,6 @@ public class ResolutionSelector : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        PersistentSettings.PreservePlayerPref(resolutionKey);
         PlayerPrefs.SetInt(resolutionKey.PrefsKey, resolutionIndex);
     }
 }

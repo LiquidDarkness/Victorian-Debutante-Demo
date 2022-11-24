@@ -36,7 +36,6 @@ public static class PersistentSettings
                 break;
         }
     }
-    //TODO: DONE dopisaæ foreache dla brakuj¹cych kolekcji
     private static void CacheSettingsData()
     {
         intsToCache.Clear();

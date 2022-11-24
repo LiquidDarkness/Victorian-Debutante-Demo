@@ -4,7 +4,6 @@ using UnityEngine;
 
 static class SteamAchievements
 {
-    //TODO: DONE zrobiæ consty na nazwy statów do aczków
     public const string EndingsReached = "endingsReached";
     public const string StoriesRead = "storiesRead";
 
