@@ -66,7 +66,7 @@ public class StoryPivot : Story
                 highestEndingIndex = index;
             }
         }
-        SteamAchievements.EndingsReachedCountUpper(); //tu wywala b³¹d
+        SteamAchievements.EndingsReachedCountUpper();
         return stories[highestEndingIndex];
     }
 

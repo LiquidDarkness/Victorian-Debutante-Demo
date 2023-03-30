@@ -20,13 +20,14 @@ public class GameplayDisplayManager : MonoBehaviour
     public MusicSwitcher musicSwitcher;
     public Text continueText;
     public Image continueArrow;
+    public CanvasGroup choiceGroup;
 
     public void Start()
     {
         //imageTransitioner.FirstSprite = storyManager.currentStory.StoryImage;
         transitionAnimation.FirstSprite = storyManager.currentStory.StoryImage;
         continueButton.interactable = false;
-        afterEndingButton.interactable = false;
+        SetEndingButtonVisibility();
         continueText.enabled = false;
         continueArrow.enabled = false;
         foreach (var choiceButton in textInstantiator.buttons)
@@ -46,14 +47,7 @@ public class GameplayDisplayManager : MonoBehaviour
         decisionAnimation.ChooseDecision(index);
         afterChoiceAnimation.PerformAnimation();
         storyDisplayer.DisplayResponseText(storyManager.currentStory.GetResult(index));
-        if (storyManager.currentStory.name.Contains("ending") == true)
-        {
-            continueButton.interactable = false;
-            continueText.enabled = false;
-            continueArrow.enabled = false;
-            afterEndingButton.interactable = true;
-        }
-        //TODO: nie dzia³a, why?
+        choiceGroup.interactable = false;
         continueButton.interactable = true;
         continueText.enabled = true;
         continueArrow.enabled = true;
@@ -61,9 +55,11 @@ public class GameplayDisplayManager : MonoBehaviour
 
     private void HandleContinueButtonClicked()
     {
+        SetEndingButtonVisibility();
         continueButton.interactable = false;
         continueText.enabled = false;
         continueArrow.enabled = false;
+        choiceGroup.interactable = true;
         storyDisplayer.DisplayResponseText(null);
         SteamAchievements.StoriesReadCounter();
         StartCoroutine(SwitchingStoryRoutine(storyManager.currentStory));
@@ -78,8 +74,8 @@ public class GameplayDisplayManager : MonoBehaviour
     IEnumerator SwitchingStoryRoutine(Story story)
     {
         //imageTransitioner.StartLineAnimation(storyManager.currentStory.StoryImage);
-        transitionAnimation.StartChosenAnimationStyle(storyManager.currentStory.StoryImage);
-        if (storyManager.currentStory.introStoryMusic != null)
+        transitionAnimation.StartChosenAnimationStyle(story.StoryImage);
+        if (story.introStoryMusic != null)
         {
             musicSwitcher.SwitchAudio(story.introStoryMusic);
             yield return IntroMusicRoutine(story.introStoryMusic.length);
@@ -87,5 +83,10 @@ public class GameplayDisplayManager : MonoBehaviour
 
         musicSwitcher.SwitchAudio(story.storyMusicLoop);
         
+    }
+
+    void SetEndingButtonVisibility()
+    {
+        afterEndingButton.interactable = storyManager.currentStory.name.Contains("ending");
     }
 }

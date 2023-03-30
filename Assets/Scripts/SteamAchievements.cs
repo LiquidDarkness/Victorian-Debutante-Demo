@@ -86,7 +86,8 @@ static class SteamAchievements
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
     private static void Init()
     {
-        //PlayerPrefs.SetInt("storiesRead", storiesRead);
+        //skomentuj, ¿eby unabln¹æ aczki
+        //PlayerPrefs.SetInt("storiesRead", storiesRead);
         try
         {
             Steamworks.SteamClient.Init(1878110);

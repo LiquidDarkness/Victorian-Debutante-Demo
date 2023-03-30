@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 07
   m_EditorClassIdentifier: 
   storyTexts: {fileID: 11400000, guid: df31d1ece25725d4d887685da3555361, type: 2}
-  nextStory: {fileID: 11400000, guid: 4ab99c65f202cbc47b14e499d6df92d8, type: 2}
+  nextStory: {fileID: 11400000, guid: 9c775d8fc3cdba544a1cf8d65b137acc, type: 2}
   introStoryMusic: {fileID: 0}
   storyMusicLoop: {fileID: 8300000, guid: 6e257fe2f0a5dc248bf2f5434044c7e9, type: 3}
   pivotsData:

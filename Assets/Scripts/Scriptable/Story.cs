@@ -15,45 +15,45 @@ public class Story : ScriptableObject
     public virtual Story NextStory { get => nextStory; }
     public string StoryText
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].StoryText;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].storyText;
     }
     public string DecisionA
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].DecisionA;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].decisionA;
     }
 
     public string ResultA
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].ResultA;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].resultA;
     }
 
     public string DecisionB
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].DecisionB;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].decisionB;
     }
 
     public string ResultB
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].ResultB;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].resultB;
     }
     public string DecisionC
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].DecisionC;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].decisionC;
     }
 
     public string ResultC
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].ResultC;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].resultC;
     }
 
     public string DecisionD
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].DecisionD;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].decisionD;
     }
 
     public string ResultD
     {
-        get => storyTexts.translations[LanguageSelector.CurrentLanguage].ResultD;
+        get => storyTexts.translations[LanguageSelector.CurrentLanguage].resultD;
     }
 
     public Sprite StoryImage 

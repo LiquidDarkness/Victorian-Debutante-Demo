@@ -16,9 +16,9 @@ public class TransitionAnimationAlternative : MonoBehaviour
     public bool ignoreTimeScale;
     public bool useDissolveAnimation;
     public Dropdown animationStylesDropdown;
-    private string currentChosenStyle;
-    private List<IEnumerator> enumerators = new List<IEnumerator>();
-    private List<string> animationStyles = new List<string>();
+    private int currentChosenIndex;
+    private List<KeyValuePair<string, Action>> animationTypes;
+
     public Sprite FirstSprite
     {
         set
@@ -31,25 +31,20 @@ public class TransitionAnimationAlternative : MonoBehaviour
     void Start()
     {
         animationStylesDropdown.ClearOptions();
-        enumerators.Clear();
-        enumerators.Add(DissolveImageAnimation());
-        enumerators.Add(imageTransitioner.GlowLineAnimation());
-        enumerators.Add(NoAnimation());
-        //foreach (IEnumerator enumerator in enumerators)
-        {
-            animationStyles.Add(nameof(DissolveImageAnimation));
-            animationStyles.Add(nameof(imageTransitioner.GlowLineAnimation));
-            animationStyles.Add(nameof(NoAnimation));
-        }
-        animationStylesDropdown.AddOptions(animationStyles);
-        currentChosenStyle = nameof(NoAnimation);
+        animationTypes = new List<KeyValuePair<string, Action>>();
+        animationTypes.Add(new KeyValuePair<string, Action>("Dissolve", PlayDissolveAnimation));
+        animationTypes.Add(new KeyValuePair<string, Action>("Glow", GlowLineAnimation));
+        animationTypes.Add(new KeyValuePair<string, Action>("No animation", NoAnimation));
+        Debug.Log(animationTypes.Count);
+        animationStylesDropdown.AddOptions(animationTypes.Select(e => e.Key).ToList());
+        //currentChosenStyle;
             //PlayerPrefs.GetString(animationStyle.PrefsKey);
     }
 
     public void SetAnimationStyle(int index)
     {
-        currentChosenStyle = animationStyles[index];
-        PlayerPrefs.SetString(animationStyle.PrefsKey, currentChosenStyle);
+        currentChosenIndex = index;
+        PlayerPrefs.SetInt(animationStyle.PrefsKey, currentChosenIndex);
     }
 
     public void StartChosenAnimationStyle(Sprite storyImage)
@@ -57,15 +52,9 @@ public class TransitionAnimationAlternative : MonoBehaviour
         //IEnumerator GlowLineAnimation = imageTransitioner.GlowLineAnimation();
         secondSprite = storyImage;
         firstSprite = storyImage;
-        int index = animationStyles.IndexOf(currentChosenStyle);
-        Debug.Log($"Index: {index}, {currentChosenStyle}");
-        StartCoroutine(enumerators[index]);
+        Debug.Log($"Index: {currentChosenIndex}");
+        animationTypes[currentChosenIndex].Value();
         //StartCoroutine(useDissolveAnimation ? DissolveImageAnimation() : GlowLineAnimation);
-    }
-
-    private void StartCoroutine()
-    {
-        throw new NotImplementedException();
     }
 
     IEnumerator DissolveImageAnimation()
@@ -80,14 +69,21 @@ public class TransitionAnimationAlternative : MonoBehaviour
         image.sprite = secondSprite;
         image.CrossFadeAlpha(1, timeOfDissolve, ignoreTimeScale);
         firstSprite = secondSprite;
-        yield return null;
     }
 
-    IEnumerator NoAnimation()
+    void PlayDissolveAnimation()
+    {
+        StartCoroutine(DissolveImageAnimation());
+    }
+
+    void NoAnimation()
     {
         image.sprite = secondSprite;
         firstSprite = secondSprite;
-        yield break;
     }
-//TODO: uproœciæ kod.
+
+    void GlowLineAnimation()
+    {
+        imageTransitioner.StartLineAnimation(secondSprite);
+    }
 }

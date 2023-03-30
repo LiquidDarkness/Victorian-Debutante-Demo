@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Version: 1.1.0
   m_SourceFontFileGUID: e263fb2461fdf7d47a42f201d72ec5ca
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e263fb2461fdf7d47a42f201d72ec5ca, type: 3}
-  m_SourceFontFile: {fileID: 0}
-  m_AtlasPopulationMode: 0
+  m_SourceFontFile: {fileID: 12800000, guid: e263fb2461fdf7d47a42f201d72ec5ca, type: 3}
+  m_AtlasPopulationMode: 1
   m_FaceInfo:
     m_FaceIndex: 0
     m_FamilyName: EB Garamond
@@ -2662,9 +2662,9 @@ MonoBehaviour:
     packingMode: 0
     atlasWidth: 512
     atlasHeight: 512
-    characterSetSelectionMode: 0
-    characterSequence: 32 - 126, 160, 8203, 8230, 9633
-    referencedFontAssetGUID: 
+    characterSetSelectionMode: 6
+    characterSequence: 20-7E,A0,200B,2026,25A1
+    referencedFontAssetGUID: 637ca1a6e91bfe648a8e285354acf2ff
     referencedTextAssetGUID: 
     fontStyle: 0
     fontStyleModifier: 0
@@ -2718,7 +2718,7 @@ Texture2D:
   m_MipsStripped: 0
   m_TextureFormat: 1
   m_MipCount: 1
-  m_IsReadable: 0
+  m_IsReadable: 1
   m_IsPreProcessed: 0
   m_IgnoreMasterTextureLimit: 0
   m_StreamingMipmaps: 0

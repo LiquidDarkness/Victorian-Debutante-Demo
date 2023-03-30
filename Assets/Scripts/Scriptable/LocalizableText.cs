@@ -16,15 +16,15 @@ public class LocalizableText : ScriptableObject
             return;
         }
         ListWrapper wrapper = JsonUtility.FromJson<ListWrapper>(json.text);
-        foreach (StoryTexts item in wrapper.Entries)
+        foreach (StoryTexts item in wrapper.entries)
         {
-            translations.Add(item.Language, item);
+            translations.Add(item.language, item);
         }
     }
 
     [Serializable]
     class ListWrapper
     {
-        public List<StoryTexts> Entries;
+        public List<StoryTexts> entries;
     }
 }
