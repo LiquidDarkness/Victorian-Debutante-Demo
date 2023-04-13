@@ -1,9 +1,8 @@
 ﻿using System;
 
 [Serializable]
-public class StoryTexts
+public class StoryTexts : LocalizableItemBase
 {
-    public string language;
     public string storyText;
     public string decisionA;
     public string resultA;

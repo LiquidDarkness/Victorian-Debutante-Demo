@@ -1,14 +1,14 @@
 {
     "entries": [
         {
-            "title": "Quill",
             "language" : "EN",
-            "text": "This is the text for entry 1."
+            "title": "Quill",
+            "entryBody": "This is the text for entry 1."
         },
         {
             "language" : "PL",
             "title": "Pióro",
-            "text": "This is the text for entry 2."
+            "entryBody": "This is the text for entry 2."
         }
     ]
 }

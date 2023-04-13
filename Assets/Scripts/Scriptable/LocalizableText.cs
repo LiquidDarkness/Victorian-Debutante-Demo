@@ -1,30 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "LiquidDarkness/" + nameof(LocalizableText))]
-public class LocalizableText : ScriptableObject
-{
-    public TextAsset json;
-    public Dictionary<string, StoryTexts> translations = new Dictionary<string, StoryTexts>();
-
-    [ContextMenu("LoadTexts")]
-    public void LoadTexts()
-    {
-        if (translations.Count > 0)
-        {
-            return;
-        }
-        ListWrapper wrapper = JsonUtility.FromJson<ListWrapper>(json.text);
-        foreach (StoryTexts item in wrapper.entries)
-        {
-            translations.Add(item.language, item);
-        }
-    }
-
-    [Serializable]
-    class ListWrapper
-    {
-        public List<StoryTexts> entries;
-    }
-}
+[CreateAssetMenu(menuName = "Entries/" + nameof(LocalizableText))]
+public class LocalizableText : LocalizableTextBase<StoryTexts> { }
